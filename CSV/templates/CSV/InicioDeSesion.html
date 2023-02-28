@@ -1,0 +1,125 @@
+{% extends "CSV/layout.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    {% load static %}
+    <link rel="icon" type="image/jpg" href="{% static 'img/Logo.jpg' %}">
+    <!-- Comentarios -->
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 15.8px;
+            font-size: fantasy;
+        }
+
+        body {
+            overflow: hidden;
+            background-image: url("{% static 'img/pink-blue-purple-swirl-abstract-art-4k-abstract.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            color: rgb(243, 239, 8);
+            font-size: 6em;
+            text-align: center;
+            line-height: 50%;
+        }
+
+        #body {
+            height: 100vh;
+        }
+
+        #csv {
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: -5%;
+        }
+
+        #login-box {
+            border: 1px solid blue;
+            width: 30%;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 15%;
+            background: #00000080;
+            padding: 20px 50px;
+            
+        }
+
+        #login-box h2 {
+            color: white;
+            font-size: 30px;
+        }
+
+        #login-box .form .item input {
+            width: 200px;
+            border: 0;
+            border-bottom: 5px solid white;
+            font-size: 18px;
+            background: #ffffff00;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        #login-box .form .item i {
+            color: white;
+            font-size: 18px;
+        }
+
+        #login-box input[type=submit] {
+            border: 0;
+            width: 150px;
+            height: 30px;
+            margin-top: 18px;
+            font-size: 18px;
+            color: white;
+            border-radius: 25px;
+            background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+        }
+        .boton {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <button style="background-color:chocolate;"><a id="dos" href="index.html"
+        style="text-decoration:none;color:black;background-color: chocolate;"><b>Volver a la Página
+            Principal</b></a></button>
+    <div id="body">
+        <div id="csv">
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <form action="{% url 'CSV:iniciar' %}" method="POST">
+            <div id="login-box">
+                {% if msg %}
+                <p style="color: rgb(247, 6, 6); font-size: large;">Error, el usuario no está registrado</p>
+                {% endif %}
+                <h2>Login</h2>
+                {% csrf_token %}
+                <div class="form">
+                    <div class="item">
+                        {{ form.csv }}
+                        <br>
+                        {{ form.csv_paswd }}
+                    </div>
+                    <div class="item">
+                        {{ form.prioridad }}
+                    </div>
+                </div>
+                <input type="submit" type="submit" value="Login">
+            </div>
+        </form>
+</body>
+
+</html>
+{% endblock %}

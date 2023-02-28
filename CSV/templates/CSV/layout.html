@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+</head>
+{% load static %}
+<style>
+        .boton2 {
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 15.8px;
+            font-size: fantasy;
+        }
+    body {
+            background-image: url("{% static 'img/thumb-1920-1169862.jpg' %}");
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100vh;
+            font-size: 15.8px;
+        }
+    .clase {
+        color: rgb(77, 160, 125);
+        background-color: rgb(253, 253, 253);
+        display:inline;
+        text-align: center;
+    }
+    ol {
+        color: rgb(239, 255, 8);
+        /* background-color: rgb(18, 241, 230); */
+        display:inline;
+        text-align: center;
+        text-align: right;
+        line-height: 300%;
+    }
+    .Eliminar {
+        text-align: center
+        ;
+    }
+    </style>
+</style>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

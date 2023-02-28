@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    {% load static %}
+    <link rel="icon" type="image/jpg" href="{% static 'img/Logo.jpg' %}">
+    <!-- Comentarios -->
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+</head>
+
+<body>
+    {% if usuario == "ADRIAN" %}
+    <button style="background-color: red;"><a  style="text-decoration:none;color:black;background-color: red;" href="index.html"><b>Cerrar Sesión</b></a></button>
+    <button style="background-color: rgb(0, 255, 242);"><a  style="text-decoration:none;color:black;background-color: rgb(0, 255, 242);" href="{% url 'CSV:add' %}"><b>Lista de Usuarios</b></a></button>
+    <p style="color: rgb(237, 253, 5); font-size: 40px;">Bienvenido Administrador</p> 
+    {% endif %}
+    {% if usuario != "ADRIAN" and usuario%}
+    <button style="background-color: red;"><a  style="text-decoration:none;color:black;background-color: red;" href="index.html"><b>Cerrar Sesión</b></a></button>
+    <p style="color: rgb(163, 241, 163); font-size: 40px;">Bienvenido: {{ usuario }}</p> 
+    {% endif %}
+    {% load static %}
+    <button style="background-color:rgb(229, 245, 11);"><a
+            href="https://www.google.com/maps/place/C.+San+Jorge,+45,+22003+Huesca/@42.1364106,-0.4162639,17z/data=!3m1!4b1!4m5!3m4!1s0xd5845b5f495157b:0x20cec02ce5333dca!8m2!3d42.1364106!4d-0.4162639"><img
+                src="{% static 'img/535188.png' %}" width="20" height="20"></a><a
+            href="https://www.google.com/maps/place/C.+San+Jorge,+45,+22003+Huesca/@42.1364106,-0.4162639,17z/data=!3m1!4b1!4m5!3m4!1s0xd5845b5f495157b:0x20cec02ce5333dca!8m2!3d42.1364106!4d-0.4162639"
+            style="text-decoration:none;color:black;"><b> Calle San Jorge, 45 (Huesca) </b> 
+        </a><br><a
+            href="https://www.google.com/maps/place/C.+de+Serrablo,+97,+22600+Sabi%C3%B1%C3%A1nigo,+Huesca/@42.5186085,-0.365605,17z/data=!3m1!4b1!4m5!3m4!1s0xd5820da56020da3:0xbb4275182f54f279!8m2!3d42.5186046!4d-0.3634163"><img
+                src="{% static 'img/535188.png' %}" width="20" height="20"></a><a
+            href="https://www.google.com/maps/place/C.+de+Serrablo,+97,+22600+Sabi%C3%B1%C3%A1nigo,+Huesca/@42.5186085,-0.365605,17z/data=!3m1!4b1!4m5!3m4!1s0xd5820da56020da3:0xbb4275182f54f279!8m2!3d42.5186046!4d-0.3634163"
+            style="text-decoration:none;color:black;"><b> Calle
+                Serrablo, 97 (Sabiñánigo) </b>  </a><br><a href="tel:+34974190755"><img src="{% static 'img/Icono-telefono-odotokids.png' %}"
+                width="20" height="20"></a><a href="tel:+34974190755" style="text-decoration:none;color:black;"><b> 974190755 </b>
+             </a><br><a href="mailto:csv270602@gmail.com"><img src="{% static 'img/4804075.png' %}" width="20" height="20"></a><a
+            href="mailto:csv270602@gmail.com" style="text-decoration:none;color:black;"><b> csv270602@gmail.com </b> </a>
+    </button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id=" body">
+        <div id="csv">
+            <h1><br>CSV</h1>
+        </div>
+        <div id="espacio">
+            <div id="barra">
+                {% if usuario %}
+                {% load static %}
+                <div><a href="Conocenos.html" style="text-decoration:none;color:black"><b>Conócenos</b></a></div>
+                {% load static %}
+                <div class="dropdown"><a href="Soporte_Remoto.html" style="text-decoration:none;color:black"><b>Soporte
+                    Remoto</b></a>
+                        {% load static %}
+                    <ul class="dropdown-content" style="list-style:none; background-color: rgba(255, 255, 255, 0);">
+                        {% load static %}
+                        <style>
+                            #team {
+                                background-image: url("{% static 'img/TeamViewer_Logo_512x512.webp' %}");
+                            }
+                            #any {
+                                background-image: url("{% static 'img/unnamed.webp' %}");
+                            }
+                        </style>
+                        <li id="team" ><a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe"
+                                style="text-decoration:none;color:black; font-size: 100%;"><b>Descargar TeamViewer</b></a> </li>
+                                {% load static %}
+                        <li id="any"><a href="https://download.anydesk.com/AnyDesk.exe"
+                                style="text-decoration:none;color:black; font-size: 100%;"><b>Descargar AnyDesk</b></a></li>
+                    </ul>
+                </div>
+                {% endif %}
+                {% if not usuario %}
+                <div><a href="Registrarse.html" style="text-decoration:none;color:black"><b>Registro de Usuario</b></a>
+                </div>
+                <div><a href="InicioDeSesion.html" style="text-decoration:none;color:black"><b>Inicio de Sesión</b></a>
+                </div>
+                {% endif %}
+                {% if usuario != "ADRIAN" and usuario%}
+                <div><a href="Contacto.html" style="text-decoration:none;color:black"><b>Contacto</b></a></div>
+                {% endif %}
+                {% if usuario %}
+                <div><a href="aniversario.html" style="text-decoration:none;color:black"><b>Aniversario</b></a></div>
+                
+                {% endif %}
+            </div>
+        </div>
+        {% if usuario %}
+        <style>
+            #current_date {
+                color:darksalmon;
+                text-align: right;
+            }
+            #fecha_actual {
+                color:darksalmon;
+                text-align: right;
+                font-size: 10;
+            }
+        </style>
+        <div id="current_date">
+            <script>
+            date = new Date();
+            year = date.getFullYear();
+            month = date.getMonth() + 1;
+            day = date.getDate();
+            document.getElementById("current_date").innerHTML = "<u><b>Fecha Actual:</u> </b>" + day + "/" + month + "/"  + year;
+            </script>
+            <p id="fecha_actual"><b><u>Aniversario:</u> </b>15/10/2022</p>
+            {% endif %}
+</body>
+
+</html>

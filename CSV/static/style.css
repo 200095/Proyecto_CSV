@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 15.8px;
+  font-size: fantasy;
+}
+
+body {
+  background-image: url('img/military-3d-printers-wallpaper-preview.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+  color: aliceblue;
+  font-size: 8em;
+  text-align: center;
+  line-height: 50%;
+}
+
+#body {
+  height: 100vh;
+}
+
+#csv {
+  height: 70%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#barra {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  justify-content: space-evenly;
+  height: 30%;
+  /* display:flex;
+  flex-flow:row;  
+  justify-content:space-around; */
+
+
+}
+
+#espacio {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#barra>div {
+  text-align: center;
+  background-color: rgb(214, 213, 135);
+  font-size: 70px;
+  /* margin: 200px;
+    padding: 200px; */
+  width: 15vw;
+  height: 10vh;
+  font-size: 20px;
+  line-height: 10vh;
+  transition: all 1s ease;
+}
+
+#barra>div:hover {
+  background-color: rgb(190, 97, 97);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(190, 97, 97);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block !important;
+}
+
+button {
+  float: right;
+  text-align: left;
+}
+

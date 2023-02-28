@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte Remoto</title>
+    {% load static %}
+    <link rel="icon" type="image/jpg" href="{% static 'img/Logo.jpg' %}">
+    <!-- Comentarios -->
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 15.8px;
+            font-size: fantasy;
+        }
+
+        body {
+            overflow: hidden;
+            background-image: url("{% static 'img/fondo-de-pantalla-3840x2160.-fondo-de-pantalla-4k-ultra-hd-azules-scaled.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            color: rgb(243, 239, 8);
+            font-size: 6em;
+            text-align: center;
+            line-height: 50%;
+        }
+
+        h2 {
+            font-size: 4em;
+            text-align: left;
+            line-height: 300%;
+        }
+
+        #body {
+            height: 100vh;
+        }
+
+        #csv {
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: -5%;
+        }
+    </style>
+</head>
+
+<body>
+    {% load static %}
+    <button style="background-color:chocolate;"><a href="{% url 'CSV:login' %}"
+            style="text-decoration:none;color:black;background-color: chocolate;"><b>Volver a la Página
+                Principal</b></a></button>
+    <div id="body">
+        <div id="csv">
+            <h1>Soporte Remoto</h1>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <div>
+                <h2 style="color: cornflowerblue;">TeamViewer <a href="https://www.teamviewer.com/es/"><img
+                            src="{% static 'img/TeamViewer_Logo_512x512.webp' %}" width="50" height="50"></img></a></h2>
+                <p style="color: white;"><b> TeamViewer es un programa para ordenador cuya función es conectarse
+                    remotamente a otro equipo.<br />
+                    Entre sus funciones están compartir y controlar escritorios, reuniones en línea, videoconferencias y
+                    transferencia de archivos entre ordenadores.<br />
+                    También es posible el acceso a un equipo remoto mediante un navegador web.<br />
+                    Aunque el principal cometido de la aplicación es el control remoto, también incluye funciones de
+                    trabajo en equipo y presentación.<br />
+                    Existen versiones para los sistemas operativos Microsoft Windows, Mac OS X, Linux, iOS, y Android.
+                </b>
+                </p>
+            </div>
+            <div>
+                <h2 style="color: red;">AnyDesk <a href="https://anydesk.com/es"><img src="{% static 'img/unnamed.webp' %}" width="50"
+                            height="50"></img></a></h2>
+                <p style="color: white;"><b> AnyDesk es una de las mejores aplicaciones de escritorio remoto que puedes
+                    encontrar.<br />
+                    Este tipo de aplicaciones te permiten controlar tu ordenador desde otro dispositivo que puede ser
+                    otro ordenador donde también tengas instalada la aplicación o incluso un teléfono móvil.<br />
+                    Con ella podrás acceder al ordenador desde un dispositivo y controlarlo remotamente, explorando sus
+                    carpetas o abriendo el navegador para, en definitiva, hacer lo mismo que harías si estuvieras frente
+                    al PC. Tiene aplicaciones para Windows, macOS, GNU/Linux, FreeBDS, Raspberry Pi, Android e iOS.</p></b>
+            </div>
+        </div>
+</body>
+
+</html>

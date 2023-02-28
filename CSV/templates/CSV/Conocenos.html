@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conócenos</title>
+    {% load static %}
+    <link rel="icon" type="image/jpg" href="{% static 'img/Logo.jpg' %}">
+    <!-- Comentarios -->
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 15.8px;
+        }
+
+        body {
+            background-image: url("{% static 'img/triangulo-abstracto-papel-pintado-2560x2048_33.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            color: rgb(243, 239, 8);
+            font-size: 8em;
+            text-align: center;
+            line-height: 50%;
+        }
+
+        #body {
+            height: 100vh;
+        }
+
+        #csv {
+            height: 70%;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        main {
+            width: 289px;
+            height: 289px;
+            margin: 80px auto;
+            font-size: 15px;
+        }
+
+        main svg {
+            overflow: visible;
+            animation: circular-text-rotate 8s linear paused infinite;
+            top: 45%;
+        }
+
+        main svg:hover {
+            animation-play-state: running;
+        }
+
+        main path {
+            fill: none;
+        }
+
+        main text {
+            fill: #01f536;
+        }
+
+        @keyframes circular-text-rotate {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        main {
+            line-height: 74;
+        }
+
+        #dos {
+            float: right;
+            text-align: center;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    {% load static %}
+    <button style="background-color:chocolate;"><a id="uno" href="{% url 'CSV:login' %}"
+            style="text-decoration:none;color:black;background-color: chocolate;"><b>Volver a la Página
+                Principal</b></a></button>
+    <div id="body">
+        <div id="csv">
+            <h1>Conócenos</h1>
+        </div>
+        <a id="dos" href="{% static 'CSV.pdf' %}"
+            style="text-decoration:none;color:white;"><img src="{% static 'img/icono-PDF.png' %}" width="50" height="50"><br>
+            <p><b>Información</b></p>
+        </a>
+        <main>
+            <svg viewBox="0 0 100 100">
+                <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
+                <text>
+                    <textPath xlink:href="#circle">
+                        Empresa dedicada a ayuda informática
+                    </textPath>
+                </text>
+            </svg>
+        </main>
+</body>
+
+</html>
