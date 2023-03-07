@@ -176,14 +176,17 @@
             <div class="contact_form">
 
                 <div class="formulario">
-                    <form method="post">
-
+                    <p>{{ msg1 }}</p>
+                    <p>{{ msg2 }}</p>
+                    <form action="{% url 'CSV:contactar' %}" method="POST" class="form">
                         <p>
-                            <label for="nombre" class="colocar_nombre">Nombre
+                            {% csrf_token %}
+                            
+                            <label for="nombre" class="colocar_nombre">Nombre 
                                 <span class="obligatorio">*</span>
                             </label>
-                            <input type="text" name="introducir_nombre" id="nombre" required="obligatorio"
-                                placeholder="Escribe tu nombre">
+                            <input readonly type="text" name="usuario" value="{{ usuario }}" ></input>
+                            
                         </p>
 
                         <p>
@@ -191,7 +194,8 @@
                                 <span class="obligatorio">*</span>
                             </label>
                             <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" style="resize:none;"
-                                required="obligatorio" placeholder="Escribe tu comentario..."></textarea>
+                                required="obligatorio" placeholder="Escribe tu comentario..." ></textarea>
+                                
                         </p>
 
                         <button id="tres" type="submit" name="enviar_formulario" id="enviar">
@@ -201,7 +205,6 @@
                         <p class="aviso">
                             <span class="obligatorio"> * </span>los campos son obligatorios.
                         </p>
-
                     </form>
                 </div>
             </div>

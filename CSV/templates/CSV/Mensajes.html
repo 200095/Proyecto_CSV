@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes</title>
+</head>
+{% load static %}
+<style>
+        .boton2 {
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 15.8px;
+            font-size: fantasy;
+        }
+    body {
+            background-image: url("{% static 'img/thumb-1920-1169862.jpg' %}");
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100vh;
+            font-size: 15.8px;
+        }
+    .clase {
+        color: rgb(77, 160, 125);
+        background-color: rgb(253, 253, 253);
+        display:inline;
+        text-align: center;
+    }
+    ol {
+        color: rgb(239, 255, 8);
+        /* background-color: rgb(18, 241, 230); */
+        display:inline;
+        text-align: center;
+        text-align: right;
+        line-height: 300%;
+    }
+    .Eliminar {
+        text-align: center
+        ;
+    }
+    </style>
+</style>
+<body>
+    <button style="background-color:red;align-items: right;"><a id="dos" href="index.html"
+        style="text-decoration:none;color:black;background-color: red;text-align: right;line-height: 50%;"><b>Cerrar Sesión y volver a la Página
+            Principal</b></a></button>
+    <form action="{% url 'CSV:login' %}" method="POST"> 
+        {% csrf_token %}
+        <h2 style="color: white; background-color: rgb(236, 108, 133);display:inline;text-align: center;">USUARIO ADMINISTRADOR: <input readonly type="text" name="usuario" value="ADRIAN"></h2><img src="https://e7.pngegg.com/pngimages/420/4/png-clipart-login-computer-icons-login-button-miscellaneous-angle.png" width="20" height="20"><input type="submit" style="background-color: greenyellow;" value="Sesión como Administrador">
+        <br>
+        <br>
+        <h1 class="clase">Usuarios que se han Registrado en CSV</h1>
+        <br>
+    </form>
+        <ol>
+                {% for u in usuarios %}
+                <li style="display:inline-block;flex-wrap:nowrap;background-color: black;text-align: center;">
+                    {{ u.Usuario }}
+                    <form action="{% url 'CSV:borrar' %}" method="POST"> 
+                        {% csrf_token %}
+                        <input readonly hidden type="text" name="usuario" value="{{ u.Usuario }}"><input type="submit" style="background-color: red;" value=" Eliminar Usuario">
+                        </form>
+                </li>
+                {% endfor %}
+        </ol>
+     
+</body>
+</html>

@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 import datetime
 from .models import Users
+from .models import Contactar
 from django.db import IntegrityError
 # Create your views here.
 
@@ -29,11 +30,19 @@ def soporte(request):
 def registro(request):
     return render(request, "CSV/Registrarse.html")
 
+def mensaje(request):
+    return render(request, "CSV/Mensajes.html")
+
+
 class FormularioCSV (forms.Form):
         csv = forms.CharField(label="Nueva CSV", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Usuario'}))
         csv_paswd = forms.CharField(label="Contra",widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'Contraseña'}))
-        
 
+class FormularioContacto (forms.Form):
+        #us_contacto = forms.CharField(label="usuario_contacto", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Usuario_Contacto1'}))
+        texto_contacto = forms.CharField(label="texto_contacto", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder': 'texto_Contacto1'}))
+
+        
 
 def add(request):
         lista = ["ADRIAN","adrian"]
@@ -87,43 +96,6 @@ def iniciar(request):
                 return render(request, "CSV/InicioDeSesion.html", {
                         "form":FormularioCSV()
                 })
-# def iniciar(request):
-#         if request.method == "POST":
-#                 formulario = FormularioCSV(request.POST)
-#                 if formulario.is_valid():
-#                    try:
-#                         usuario = formulario.cleaned_data["csv"]
-#                         contra = formulario.cleaned_data["csv_paswd"]
-#                         c_usuario = Users.objects.filter(Usuario__iexact=usuario).values("Usuario").first()
-#                         c_userUser = c_usuario["Usuario"]
-#                         c_paswd = Users.objects.filter(Password__iexact=contra).values("Password").first()
-#                         c_paswdPass = c_paswd["Password"]
-#                         if c_userUser == "adrian" and c_paswdPass == "root":
-#                                 request.session["iniciado"] = usuario
-#                                 return HttpResponseRedirect(reverse("CSV:add"))
-
-#                         elif c_userUser and c_paswdPass:
-#                                 request.session["iniciado"] = usuario
-#                                 return render(request, "CSV/index.html", {"usuario" :  request.session["iniciado"]})
-                        
-                        
-                                
-#                         else:   
-#                                 return render(request, "CSV/InicioDeSesion.html", {
-#                                         "form": formulario, "msg" : "El usuario no está registrado."
-#                                 })
-#                    except TypeError:
-#                         return render(request, "CSV/InicioDeSesion.html", {
-#                                   "form": formulario, "msg" : "El usuario ya está registrado."})
-#                 else:   
-#                         return render(request, "CSV/InicioDeSesion.html", {
-#                                 "form": formulario
-#                         })
-#         else:
-#                 return render(request, "CSV/InicioDeSesion.html", {
-#                         "form":FormularioCSV()
-#                 })
-
 
 def borrar(request):
         if request.method == "POST":
@@ -164,3 +136,16 @@ def registro(request):
         else:
                 formulario = FormularioCSV()
                 return render(request, "CSV/Registrarse.html", {'form':formulario})
+
+def contactar(request):
+        if request.method == "POST":
+                   
+                          usert = request.session["iniciado"]
+                          text = request.POST.get('introducir_mensaje')
+                          texto = Contactar.objects.create(Usuario=usert, Mensaje=text)
+                          texto.save()
+                          return render(request, "CSV/index.html")
+
+        else:
+                form = FormularioContacto()
+        return render(request, "CSV/Contacto.html", {"usuario":request.session["iniciado"] ,'form':form})
