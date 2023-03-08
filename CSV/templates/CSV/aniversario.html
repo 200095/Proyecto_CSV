@@ -15,6 +15,18 @@
                 style="text-decoration:none;color:black;background-color: chocolate;"><b>Volver a la Página Principal</b>
                 </a></button>
                 {% if aniversario %}
+                <script>
+                    function colorcito() {
+                        var letrascolor = document.getElementById("Color");
+        
+                        if (letrascolor.style.color === "black") {
+                            letrascolor.style.color = "yellow";
+                        }
+                        else {
+                            letrascolor.style.color = "black";
+                        }
+                    }
+                </script>
                 <style>
                     body {
                         background-color: rgb(122, 236, 122);
@@ -29,12 +41,16 @@
                     }
                 </style>
                 <br>
-                    <h1>
+                    <h1 id="Color" style="color: black;">
                         <br> <u>HOY ES EL ANIVERSARIO DE CSV</u> </h1>
                     {% load static %}
                     <br>
                     <br>
+                    <center>
+                    <button onclick="colorcito()">
                     <img src="{% static 'img/e5ba7bac88c00eaa57799cfd7dbd221c-transformed.jpeg' %}" width="500" height="400">
+                    </button>
+                    </center>
                 {% else %}
                 <style>
                     body {
@@ -49,11 +65,27 @@
                         margin:auto;
                     }
                 </style>
+                                <script>
+                                    function colorcitos() {
+                                        var letrascolor = document.getElementById("Colores");
+                        
+                                        if (letrascolor.style.color === "black") {
+                                            letrascolor.style.color = "blue";
+                                        }
+                                        else {
+                                            letrascolor.style.color = "black";
+                                        }
+                                    }
+                                </script>
                 <br>
-                    <h1> <br><u>HOY NO ES EL ANIVERSARIO DE CSV</u>  </h1>
+                <h1 id="Colores" style="color: black;"> <br><u>HOY NO ES EL ANIVERSARIO DE CSV</u>  </h1>
                     <br>
                     <br>
+                    <center>
+                    <button onclick="colorcitos()">
                     <img src="https://media.istockphoto.com/id/543347592/es/vector/por-qu%C3%A9-dios-por-qu%C3%A9-emoticono.jpg?s=612x612&w=0&k=20&c=nh0LFnRA5D_ISIFqC9O668Pm3VowwSovFoLn9PNfxP4=" width="500" height="400">   
+                    </button>
+                    </center>
                     {% endif %}
         </body>       
     </html>

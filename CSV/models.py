@@ -5,7 +5,7 @@ class Users(models.Model):
     Password = models.CharField(max_length=50)
 
 class Contactar(models.Model):
-    Usuario = models.CharField(max_length=255,unique=True)
+    Usuario = models.CharField(max_length=255)
     Mensaje = models.CharField(max_length=1000)
 
 # Create your models here.

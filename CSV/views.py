@@ -52,6 +52,12 @@ def add(request):
             "usuarios": usuarios
         })
 
+def mensaje(request):
+       mensajes = Contactar.objects.all()
+       return render(request, "CSV/Mensajes.html", {
+              "mensajes":mensajes
+       })
+
 def login(request):
         if request.method == "POST":
                 usuario = request.POST["usuario"]
@@ -144,7 +150,7 @@ def contactar(request):
                           text = request.POST.get('introducir_mensaje')
                           texto = Contactar.objects.create(Usuario=usert, Mensaje=text)
                           texto.save()
-                          return render(request, "CSV/index.html")
+                          return render(request, "CSV/Contacto.html", {"usuario":request.session["iniciado"]})
 
         else:
                 form = FormularioContacto()

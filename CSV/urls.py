@@ -12,7 +12,6 @@ urlpatterns = [
     path("borrar", views.borrar, name="borrar" ),
     path("login", views.login, name="login" ),
     path("aniversario.html", views.ani, name="aniversario"),
-    path("Registrarse.html", views.registro, name="registro"),
-    path("Mensajes.html", views.mensaje, name="mensaje")
-    
+    path("Mensajes.html", views.mensaje, name="mensaje"),
+    path("Registrarse.html", views.registro, name="registro")
 ]
