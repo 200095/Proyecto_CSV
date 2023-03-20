@@ -20,7 +20,7 @@
     {% endif %}
     {% if usuario != "ADRIAN" and usuario%}
     <button style="background-color: red;"><a  style="text-decoration:none;color:black;background-color: red;" href="index.html"><b>Cerrar Sesión</b></a></button>
-    <p style="color: rgb(163, 241, 163); font-size: 40px;">Bienvenido: {{ usuario }}</p> 
+    <p style="color: rgb(163, 241, 163); font-size: 40px;">Bienvenido/a: {{ usuario }}</p> 
     {% endif %}
     {% load static %}
     <button style="background-color:rgb(229, 245, 11);"><a
@@ -114,7 +114,7 @@
             day = date.getDate();
             document.getElementById("current_date").innerHTML = "<u><b>Fecha Actual:</u> </b>" + day + "/" + month + "/"  + year;
             </script>
-            <p id="fecha_actual"><b><u>Aniversario:</u> </b>15/10/2022</p>
+            <p id="fecha_actual"><b><u>Aniversario:</u> </b>15/10/20223</p>
             {% endif %}
 </body>
 
